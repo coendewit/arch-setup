@@ -1,7 +1,7 @@
 echo "=== Mise installation ==="
 
 if ! command -v mise &>/dev/null; then
-  curl https://get.mise.run | sh
+  sudo pacman -S mise
   echo "eval \"\$(~/.local/bin/mise activate zsh)\"" >>~/.zshrc
 else
   echo "Mise is already installed"
