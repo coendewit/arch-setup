@@ -1,11 +1,9 @@
 echo "=== Mise installation ==="
 
-if ! command -v mise &>/dev/null; then
-  sudo pacman -S mise
-  echo "eval \"\$(~/.local/bin/mise activate zsh)\"" >>~/.zshrc
-else
-  echo "Mise is already installed"
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+source "$SCRIPT_DIR/../helper_functions.sh"
+
+install_if_not_found mise
 
 echo "=== .Net installation ==="
 if ! command -v dotnet &>/dev/null; then
