@@ -7,7 +7,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 source "$SCRIPT_DIR/../helper_functions.sh"
 
 install_if_not_found neovim
-install_if_not_found lazyvim
 
 if [[ ! -f ~/.config/nvim/lazyvim.json ]]; then
   rm -rf ~/.config/nvim
