@@ -11,7 +11,7 @@ sudo pacman -S --noconfirm \
 # Add screen recorder based on GPU
 if lspci | grep -qi 'nvidia'; then
   sudo pacman -S --noconfirm --needed wf-recorder
-else
+  # else
   ## TODO: find solution outside of AUR
   # sudo pacman -S --noconfirm --needed wl-screenrec
 fi
