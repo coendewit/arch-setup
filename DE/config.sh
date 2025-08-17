@@ -2,8 +2,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 source "$SCRIPT_DIR/../helper_functions.sh"
 
 ## Symlink all config files
-for file in $(ls "$SCRIPT_DIR/config/*.conf"); do
-  create_symlink "$file" ~/.config/$(basename "$file")
+find ./config -type f | while read -r file; do
+  target="$HOME/.config/${file#./config/}"
+  create_symlink "$PWD/$file" "$target"
 done
 
 # Setup GPG configuration with multiple keyservers for better reliability
