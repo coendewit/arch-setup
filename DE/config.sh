@@ -6,9 +6,6 @@ for file in $(ls "$SCRIPT_DIR/config/*.conf"); do
   create_symlink "$file" ~/.config/$(basename "$file")
 done
 
-## Synlink .zshrc
-create_symlink "$SCRIPT_DIR/config/.zshrc" ~/.zshrc
-
 # Setup GPG configuration with multiple keyservers for better reliability
 sudo mkdir -p /etc/gnupg
 sudo cp "$SCRIPT_DIR/config/dirmngr.conf" /etc/gnupg/
