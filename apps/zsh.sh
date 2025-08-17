@@ -26,3 +26,6 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh
 
 # Install zsh-completions
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+
+# Remove bash configuration
+rm ~/.bash*
