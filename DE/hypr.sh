@@ -22,4 +22,4 @@ install_if_not_found swayosd
 install_if_not_found xdg-desktop-portal-hyprland
 install_if_not_found xdg-desktop-portal-gtk
 
-create_symlink "$SCRIPT_DIR/hypr/hyprland.conf" ~/.config/hyprland.conf
+create_symlink "$SCRIPT_DIR/hypr/hyprland.conf" ~/.config/hypr/hyprland.conf
