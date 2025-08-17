@@ -32,6 +32,20 @@ for script in ./apps/*.sh; do
 done
 
 # ----------------------------
+# Install bash scripts
+# ----------------------------
+mkdir -p ~/bin
+for script in ./bin/*.sh; do
+  cp "$script" ~/bin/
+  chmod +x ~/bin/$(basename "$script")
+done
+
+# add ~/bin to PATH if not already there
+if ! grep -q '~/bin' <<<"$PATH"; then
+  export PATH="$PATH:~/bin"
+fi
+
+# ----------------------------
 # Finish
 # ----------------------------
 echo "=== Bootstrap complete! ==="
