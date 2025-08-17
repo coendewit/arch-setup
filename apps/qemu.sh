@@ -13,7 +13,7 @@ install_if_not_found dnsmasq
 install_if_not_found vde2
 install_if_not_found bridge-utils
 install_if_not_found openbsd-netcat
-install_if_not_found iptables-nft
+install_if_not_found iptables
 
 sudo systemctl enable --now libvirtd.service
 
