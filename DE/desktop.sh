@@ -12,5 +12,6 @@ sudo pacman -S --noconfirm \
 if lspci | grep -qi 'nvidia'; then
   sudo pacman -S --noconfirm --needed wf-recorder
 else
-  sudo pacman -S --noconfirm --needed wl-screenrec
+  ## TODO: find solution outside of AUR
+  # sudo pacman -S --noconfirm --needed wl-screenrec
 fi
