@@ -6,8 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 source "$SCRIPT_DIR/../helper_functions.sh"
 
 install_if_not_found zsh
-
-create_symlink "$SCRIPT_DIR/zsh/.zshrc" ~/.zshrc
+install_if_not_found zsh-completions
 
 # Change shell to zsh
 sudo chsh -s /bin/zsh
@@ -29,3 +28,5 @@ git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugi
 
 # Remove bash configuration
 rm ~/.bash*
+
+create_symlink "$SCRIPT_DIR/zsh/.zshrc" ~/.zshrc
