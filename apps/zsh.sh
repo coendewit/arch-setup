@@ -8,23 +8,30 @@ source "$SCRIPT_DIR/../helper_functions.sh"
 install_if_not_found zsh
 install_if_not_found zsh-completions
 
-# Change shell to zsh
-sudo chsh -s /bin/zsh
+# Change shell to zsh if SHELL variable is not /usr/bin/zsh
+if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
+  sudo chsh -s /usr/bin/zsh
+fi
 
 # Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [[ ! -d ~/.oh-my-zsh ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Install zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+if [[ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+fi
 
 # Install zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+if [[ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
 
 # Install zsh-history-substring-search
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
-
-# Install zsh-completions
-git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+if [[ ! -d ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search ]]; then
+  git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+fi
 
 # Remove bash configuration
 rm ~/.bash*
