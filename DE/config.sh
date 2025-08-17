@@ -21,4 +21,4 @@ sudo sed -i 's|^\(auth\s\+required\s\+pam_faillock.so\)\s\+preauth.*$|\1 preauth
 sudo sed -i 's|^\(auth\s\+\[default=die\]\s\+pam_faillock.so\)\s\+authfail.*$|\1 authfail deny=10 unlock_time=120|' "/etc/pam.d/system-auth"
 
 # Set Cloudflare as primary DNS (with Google as backup)
-sudo cp "{SCRIPT_DIR}/config/resolved.conf" /etc/systemd/
+# sudo cp "{$SCRIPT_DIR}/config/resolved.conf" /etc/systemd/
