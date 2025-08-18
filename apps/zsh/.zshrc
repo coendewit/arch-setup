@@ -117,7 +117,7 @@ alias lg="lazygit"
 alias n="nvim"
 
 eval "$(zoxide init zsh)"
-eval "$(~/.local/bin/mise activate zsh)"
+eval "$(/usr/bin/mise activate zsh)"
 
 if uwsm check may-start; then
   exec uwsm start hyprland-uwsm.desktop
