@@ -8,7 +8,7 @@ source "$SCRIPT_DIR/../helper_functions.sh"
 mkdir -p ~/.local/share/fonts
 
 if [[ ! -f ~/.local/share/fonts/JetBrainsMonoNerdFontMono-Regular.ttf ]]; then
-  cp -f "$SCRIPT_DIR/fonts/"*.ttf ~/.local/share/fonts
+  sudo cp -f "$SCRIPT_DIR/fonts/"*.ttf ~/.local/share/fonts
 fi
 
 fc-cache -fv
