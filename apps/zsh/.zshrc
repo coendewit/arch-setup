@@ -1,4 +1,13 @@
-fastfetch
+# Only run fastfetch if not on a Linux console
+case "$TTY" in
+  /dev/tty[0-9]*) 
+    # On a real TTY -> skip fastfetch
+    ;;
+  *)
+    # On a PTY (Wayland/X11 terminal emulator) -> run fastfetch
+    fastfetch
+    ;;
+esac
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
