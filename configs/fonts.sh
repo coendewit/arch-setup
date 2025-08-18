@@ -13,4 +13,4 @@ fi
 
 fc-cache -fv
 
-create-symlink "$SCRIPT_DIR/fonts/fonts.config" ~/.config/fontconfig/fonts.conf
+create_symlink "$SCRIPT_DIR/fonts/fonts.config" ~/.config/fontconfig/fonts.conf
