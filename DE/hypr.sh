@@ -18,7 +18,6 @@ install_if_not_found hyprland-qtutils
 install_if_not_found libqalculate
 install_if_not_found waybar
 install_if_not_found mako
-install_if_not_found swaybg
 install_if_not_found swayosd
 install_if_not_found xdg-desktop-portal-hyprland
 install_if_not_found xdg-desktop-portal-gtk
