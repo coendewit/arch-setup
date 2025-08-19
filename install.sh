@@ -13,7 +13,7 @@ sudo pacman -Syu --noconfirm
 # ----------------------------
 # Install desktop
 # ----------------------------
-for script in ./DE/*.sh; do
+for script in ./de/*.sh; do
   source "$script"
 done
 
@@ -34,16 +34,7 @@ done
 # ----------------------------
 # Install bash scripts
 # ----------------------------
-mkdir -p ~/bin
-for script in ./bin/*.sh; do
-  cp "$script" ~/bin/
-  chmod +x ~/bin/$(basename "$script")
-done
-
-# add ~/bin to PATH if not already there
-if ! grep -q '~/bin' <<<"$PATH"; then
-  export PATH="$PATH:~/bin"
-fi
+source ./install_scripts.sh
 
 # ----------------------------
 # Finish
