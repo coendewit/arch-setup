@@ -17,7 +17,8 @@ create_symlink() {
   local destination="$2"
 
   # Extract the directory path of the destination
-  local dest_dir=$(dirname "$destination")
+  local dest_dir
+  dest_dir=$(dirname "$destination")
 
   # Create the parent directory if it doesn't exist
   if [ ! -d "$dest_dir" ]; then
@@ -25,8 +26,8 @@ create_symlink() {
     mkdir -p "$dest_dir"
   fi
 
-  # Check if the destination exists and remove it
-  if [ -e "$destination" ]; then
+  # Check if the destination exists (regular file/dir) or is a symlink (even broken)
+  if [ -e "$destination" ] || [ -L "$destination" ]; then
     echo "Removing existing item at '$destination'..."
     rm -rf "$destination"
   fi
