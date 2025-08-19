@@ -5,6 +5,11 @@ echo "=== Install terminal tools ==="
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 source "$SCRIPT_DIR/../helper_functions.sh"
 
+install_if_not_found yazi
+install_if_not_found 7zip
+install_if_not_found resvg
+install_if_not_found chafa
+
 install_if_not_found ripgrep
 install_if_not_found bat
 install_if_not_found unzip
