@@ -10,7 +10,7 @@ install_if_not_found zsh-completions
 
 # Change shell to zsh if SHELL variable is not /usr/bin/zsh
 if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
-  sudo chsh -s /usr/bin/zsh
+  sudo usermod -s /usr/bin/zsh $USER
 fi
 
 # Install oh-my-zsh

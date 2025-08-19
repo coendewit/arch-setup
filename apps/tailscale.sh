@@ -9,7 +9,7 @@ if ! command -v tailscale &>/dev/null; then
   curl -fsSL https://tailscale.com/install.sh | sh
 
   echo -e "\nStarting Tailscale..."
-  sudo tailscale up --accept-routes
+  #sudo tailscale up --accept-routes
 else
   echo -e "\nTailscale is already installed."
 fi
