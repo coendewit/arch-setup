@@ -1,0 +1,1 @@
+/home/coen/.config/omarchy/current/theme/neovim.lua
