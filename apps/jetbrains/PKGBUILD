@@ -1,0 +1,28 @@
+# Maintainer: Frederik Schwan <freswa at archlinux dot org>
+
+pkgname=jetbrains-toolbox
+pkgver=2.8.1.52155
+pkgrel=1
+pkgdesc='Manage all your JetBrains Projects and Tools'
+arch=('x86_64' 'i686')
+url='https://www.jetbrains.com/toolbox/'
+license=('custom:jetbrains')
+depends=()
+optdepends=('xdg-utils: open URLs')
+options=('!strip' '!debug')
+source=("https://download.jetbrains.com/toolbox/${pkgname}-${pkgver}.tar.gz"
+  jetbrains-toolbox.desktop
+  icon.svg
+  LICENSE)
+b2sums=(skip, skip, skip, skip)
+
+package() {
+  install -dm755 "${pkgdir}"/usr/bin/ "${pkgdir}"/opt/${pkgname}
+  install -Dm644 "${srcdir}"/${pkgname}.desktop "${pkgdir}"/usr/share/applications/${pkgname}.desktop
+  install -Dm644 "${srcdir}"/icon.svg "${pkgdir}"/usr/share/pixmaps/${pkgname}.svg
+  install -Dm644 LICENSE "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE.txt
+
+  cp -ar "${srcdir}"/${pkgname}-${pkgver}/bin/* "${pkgdir}"/opt/${pkgname}/
+
+  ln -s /opt/${pkgname}/${pkgname} "${pkgdir}"/usr/bin/${pkgname}
+}
