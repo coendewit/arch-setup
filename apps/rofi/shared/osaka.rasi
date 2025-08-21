@@ -1,0 +1,14 @@
+/**
+ *
+ * Custom Colors Osaka
+ *
+ **/
+
+* {
+    background:     #111c18FF;
+    background-alt: #23372BFF;
+    foreground:     #C1C497FF;
+    selected:       #459451FF;
+    active:         #2DD5B7FF;
+    urgent:         #FF5345FF;
+}
