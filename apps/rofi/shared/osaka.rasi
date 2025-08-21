@@ -5,10 +5,10 @@
  **/
 
 * {
-    background:     #111c18FF;
-    background-alt: #23372BFF;
-    foreground:     #C1C497FF;
-    selected:       #459451FF;
-    active:         #2DD5B7FF;
-    urgent:         #FF5345FF;
+    background:     #111c18FF;   /* kitty background */
+    background-alt: #23372BFF;   /* kitty color0 (alt/dark panels) */
+    foreground:     #C1C497FF;   /* kitty foreground */
+    selected:       #23372BFF;   /* kitty color0 for subtle selection */
+    active:         #509475FF;   /* kitty color4 (muted green for active) */
+    urgent:         #FF5345FF;   /* kitty color1 (red for urgent) */
 }
