@@ -7,14 +7,14 @@ pkgdesc='Manage all your JetBrains Projects and Tools'
 arch=('x86_64' 'i686')
 url='https://www.jetbrains.com/toolbox/'
 license=('custom:jetbrains')
-depends=()
+depends=('fuse' 'glib2' 'libxslt' 'libxss' 'xcb-util-keysyms' 'xdg-utils' 'nss')
 optdepends=('xdg-utils: open URLs')
 options=('!strip' '!debug')
 source=("https://download.jetbrains.com/toolbox/${pkgname}-${pkgver}.tar.gz"
   jetbrains-toolbox.desktop
   icon.svg
   LICENSE)
-b2sums=(skip, skip, skip, skip)
+b2sums=(SKIP SKIP SKIP SKIP)
 
 package() {
   install -dm755 "${pkgdir}"/usr/bin/ "${pkgdir}"/opt/${pkgname}

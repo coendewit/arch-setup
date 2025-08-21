@@ -1,0 +1,95 @@
+"" Source your .vimrc
+source ~/.vimrc
+
+let mapleader=" "
+
+""" Plugins
+" set easymotion
+set NERDTree
+set multiple-cursors
+set surround
+set sneak
+Plug 'machakann/vim-highlightedyank'
+
+" Retap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+""" Interactive remaps
+inoremap kj <Esc>
+""" vnoremap kj <Esc>
+inoremap jj :action EditorCompleteStatement<CR>
+
+""" settings
+set scrolloff=8
+set gdefault
+set relativenumber number
+set incsearch
+set ignorecase
+set smartcase
+set smartindent
+set ideajoin
+let g:EasyMotion_smartcase=1
+
+""" refactor
+nnoremap <leader>f :action ReformatCode<CR>
+nnoremap <leader>c :action CommentByLineComment<CR>
+vnoremap <leader>c :action CommentByLineComment<CR>
+nnoremap <leader>i :action ShowIntentionActions<CR>
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
+nnoremap m :action PlaybackLastMacro<CR>
+
+"" navigation
+nnoremap <M-p> :action SearchEverywhere<CR>
+nnoremap gh :action LocalHistory.ShowHistory<CR>
+nnoremap gs :action NextSplitter<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gp :action GotToSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap gw :action GotoNextError<CR>
+nnoremap gW :action GotoPreviousError<CR>
+nnoremap gn :action MethodDown<CR>
+nnoremap gp :action MethodUp<CR>
+nnoremap gm :action EditorMatchBrace<CR>
+noremap <s-TAB> :action PreviousTab<CR>
+noremap <TAB> :action NextTab<CR>
+noremap <leader>t :action ActivateProjectToolWindow<CR> 
+
+""" actions
+nnoremap <leader>q :action CloseActiveEditor<CR>
+nnoremap <leader>Q :action CloseAllTabsButActive<CR>
+nnoremap <leader>o :action GotoFile<CR>
+nnoremap <leader>O :action GotoSymbol<CR>
+nnoremap <leader>w :action SaveAll<CR>
+
+" In insert or command mode, move normally by using Ctrl
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+
+""" Running and Debugging
+nnoremap ,r :action Rider.UnitTesting.RunContext<CR>
+nnoremap ,t :action RiderUnitTestRunContextAction<CR>
+nnoremap ,d :action RiderUnitTestDebugContextAction<CR>
+
+nnoremap ,u :action Rerun<CR>
+nnoremap ,f :action Rider.UnitTesting.RerunBroken.Split<CR>
+nnoremap ,b :action ToggleLineBreakpoint<CR>
