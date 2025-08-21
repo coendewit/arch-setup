@@ -17,5 +17,5 @@ fi
 
 create_symlink "$SCRIPT_DIR/neovim/keymaps.lua" ~/.config/nvim/lua/config/keymaps.lua
 create_symlink "$SCRIPT_DIR/neovim/supermaven.lua" ~/.config/nvim/lua/plugins/supermaven.lua
-create_symlink "$SCRIPT_DIR/neovim/supermaven.lua" ~/.config/nvim/lua/plugins/theme.lua
-create_symlink "$SCRIPT_DIR/neovim/supermaven.lua" ~/.config/nvim/plugin/after/transparency.lua
+create_symlink "$SCRIPT_DIR/neovim/theme.lua" ~/.config/nvim/lua/plugins/theme.lua
+create_symlink "$SCRIPT_DIR/neovim/transparency.lua" ~/.config/nvim/plugin/after/transparency.lua
