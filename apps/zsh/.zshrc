@@ -1,3 +1,5 @@
+export ZSH=$HOME/.oh-my-zsh
+#
 # Only run fastfetch if not on a Linux console
 case "$TTY" in
   /dev/tty[0-9]*) 
@@ -9,15 +11,10 @@ case "$TTY" in
     ;;
 esac
 
-export ZSH="$HOME/.oh-my-zsh"
-
-PROMPT_DIRTRIM=0
-
-# Use avit theme
 ZSH_THEME="my-arch-theme"
 
 # Enable plugins
-plugins=(git dotnet)
+plugins=(git dotnet zsh-autosuggestions zsh-syntax-highlighting zsh-completions vi-mode)
 
 # Enable colors
 autoload -U colors && colors
