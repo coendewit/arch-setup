@@ -14,14 +14,14 @@ install_if_not_found xdg-utils
 install_if_not_found nss
 
 cd "$SCRIPT_DIR"/jetbrains
-makepkg -siC
+makepkg -siC --noconfirm
 
 rm -rf "$SCRIPT_DIR"/jetbrains/jetbrains*.tar.gz
 rm -rf "$SCRIPT_DIR"/jetbrains/jetbrains*.pkg.tar.zst
 
 create_symlink "$SCRIPT_DIR"/jetbrains/.ideavimrc ~/.ideavimrc
 
-# Use the wl toolkit
+# Use the wl toolkit - the following part won't work since JetBrains Rider is not installed yet
 
 # Determinne the Rider version. It is the folder name within the jetbrains folder
 RIDER_VERSION=$(basename ~/.config/JetBrains/Rider*)
