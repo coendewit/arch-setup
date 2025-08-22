@@ -37,3 +37,4 @@ fi
 rm ~/.bash*
 
 create_symlink "$SCRIPT_DIR/zsh/.zshrc" ~/.zshrc
+create_symlink "$SCRIPT_DIR/zsh/my-theme" ~/.oh-my-zsh/themes/my-arch-theme
