@@ -25,9 +25,16 @@ for script in ./configs/*.sh; do
 done
 
 # ----------------------------
-# Install all apps
+# Install all terminal apps
 # ----------------------------
-for script in ./apps/*.sh; do
+for script in ./terminal/*.sh; do
+  source "$script"
+done
+
+# ----------------------------
+# Install development requirements
+# ----------------------------
+for script in ./development/*.sh; do
   source "$script"
 done
 
