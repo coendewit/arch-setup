@@ -13,14 +13,14 @@ sudo pacman -Syu --noconfirm
 # ----------------------------
 # Install desktop
 # ----------------------------
-for script in ./de/*.sh; do
+for script in ./desktop/*.sh; do
   source "$script"
 done
 
 # ----------------------------
-# Configuration files
+# Configure global system settings
 # ----------------------------
-for script in ./configs/*.sh; do
+for script in ./system/*.sh; do
   source "$script"
 done
 
