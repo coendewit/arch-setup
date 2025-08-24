@@ -44,11 +44,14 @@ else
   export EDITOR='nvim'
 fi
 
+# Set up aliases
 alias l="eza -la --group-directories-first --icons=auto"
 alias ls="eza -la --group-directories-first --icons=auto"
 alias lg="lazygit"
 alias n="nvim"
+alias m='make -C "$(git rev-parse --show-toplevel)"'
 
+# Initialize zoxide
 eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
