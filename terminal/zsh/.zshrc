@@ -19,7 +19,6 @@ plugins=(git dotnet zsh-autosuggestions zsh-syntax-highlighting zsh-completions 
 # Enable colors
 autoload -U colors && colors
 
-ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Source Oh-My-Zsh
