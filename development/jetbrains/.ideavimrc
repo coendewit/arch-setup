@@ -33,6 +33,7 @@ set ignorecase
 set smartcase
 set smartindent
 set ideajoin
+set clipboard+=unnamedplus
 let g:EasyMotion_smartcase=1
 
 """ refactor
@@ -62,6 +63,9 @@ nnoremap gp :action MethodUp<CR>
 nnoremap gm :action EditorMatchBrace<CR>
 noremap <s-TAB> :action PreviousTab<CR>
 noremap <TAB> :action NextTab<CR>
+noremap [b :action PreviousTab<CR>
+noremap ]b :action NextTab<CR>
+
 noremap <leader>t :action ActivateProjectToolWindow<CR> 
 
 """ actions
