@@ -57,7 +57,9 @@ nnoremap gb :action Back<CR>
 nnoremap gf :action Forward<CR>
 nnoremap gr :action FindUsages<CR>
 nnoremap gw :action GotoNextError<CR>
+nnoremap ]d :action GotoNextError<CR>
 nnoremap gW :action GotoPreviousError<CR>
+nnoremap [d :action GotoPreviousError<CR>
 nnoremap gn :action MethodDown<CR>
 nnoremap gp :action MethodUp<CR>
 nnoremap gm :action EditorMatchBrace<CR>
