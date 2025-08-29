@@ -57,3 +57,4 @@ eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
 
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
