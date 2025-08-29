@@ -15,3 +15,5 @@ eval "$(ssh-agent -s)" >/dev/null
 cd ~/.ssh
 ssh-keygen -K
 ssh-add ~/.ssh/id_ed25519_sk_rk
+
+git remote set-url origin git@github.com:coendewit/arch-setup.git
