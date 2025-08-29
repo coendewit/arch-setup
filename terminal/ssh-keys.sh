@@ -6,8 +6,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 source "$SCRIPT_DIR/../helper_functions.sh"
 
 install_if_not_found openssh
+install_if_not_found libfido2
 
-create_symlink "$SCRIPT_DIR/ssh/ssh_config" ~/.ssh/config
+create_symlink "$SCRIPT_DIR/ssh/config" ~/.ssh/config
 
 eval "$(ssh-agent -s)" >/dev/null
 
