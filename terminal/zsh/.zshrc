@@ -1,4 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
+eval "$(ssh-agent -s)"
+
 #
 # Only run fastfetch if not on a Linux console
 case "$TTY" in
@@ -55,6 +57,3 @@ eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-if uwsm check may-start; then
-  exec uwsm start hyprland-uwsm.desktop
-fi
