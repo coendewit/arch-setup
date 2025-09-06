@@ -1,3 +1,28 @@
 Host *
   IdentityFile ~/.ssh/id_ed25519_sk_rk
   IdentitiesOnly yes
+
+Host dev.azure.com-condor
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile ~/.ssh/gmail_rsa
+
+Host ssh.dev.azure.com
+  HostName ssh.dev.azure.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+
+Host server1
+    HostName 49.13.233.15
+    User root
+    IdentityFile ~/.ssh/server_rsa
+
+Host pi4
+    HostName pi4.local
+    User coendewit 
+    IdentityFile ~/.ssh/pi4_key
+
+Host nuc 
+    HostName 100.91.174.116
+    User coen
+    IdentityFile ~/.ssh/nuc_key
