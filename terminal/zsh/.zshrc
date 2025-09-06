@@ -45,12 +45,24 @@ else
   export EDITOR='nvim'
 fi
 
+m() {
+    local git_root
+    git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+
+    if [[ -n "$git_root" ]]; then
+        echo "Running make in Git root: $git_root"
+        make -C "$git_root" --no-print-directory "$@"
+    else
+        echo "Running make in current directory: $PWD"
+        make --no-print-directory "$@"
+    fi
+}
+
 # Set up aliases
 alias l="eza -la --group-directories-first --icons=auto"
 alias ls="eza -la --group-directories-first --icons=auto"
 alias lg="lazygit"
 alias n="nvim"
-alias m='make -C "$(git rev-parse --show-toplevel)"'
 
 # Initialize zoxide
 eval "$(zoxide init zsh)"
