@@ -17,6 +17,12 @@ Host server1
     User root
     IdentityFile ~/.ssh/server_rsa
 
+Host storage
+  HostName u491539.your-storagebox.de
+    User u491539
+    IdentityFile ~/.ssh/server_rsa
+    Port 23
+
 Host pi4
     HostName pi4.local
     User coendewit 
