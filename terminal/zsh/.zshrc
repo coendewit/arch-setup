@@ -45,6 +45,7 @@ else
   export EDITOR='nvim'
 fi
 
+# Set up make
 m() {
     local git_root
     git_root=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -67,7 +68,4 @@ alias n="nvim"
 # Initialize zoxide
 eval "$(zoxide init zsh)"
 
-export PATH="$HOME/.local/bin:$PATH"
-
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
 export PATH="$PATH:$HOME/.dotnet/tools"
