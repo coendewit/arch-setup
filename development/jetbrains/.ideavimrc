@@ -1,6 +1,4 @@
 "" Source your .vimrc
-source ~/.vimrc
-
 let mapleader=" "
 
 """ Plugins
