@@ -23,6 +23,17 @@ alt+c = C-c
 alt+v = C-v
 alt+x = C-x
 alt+a = C-a
+
+# Make CapsLock dual-function:
+# Tap = CapsLock, Hold = activate "caps" layer
+capslock = overload(caps, capslock)
+
+[caps]
+h = left
+j = down
+k = up
+l = right
+
 EOF
 
 sudo keyd reload
