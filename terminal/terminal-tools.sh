@@ -10,6 +10,7 @@ install_if_not_found 7zip
 install_if_not_found resvg
 install_if_not_found chafa
 
+install_if_not_found rsync
 install_if_not_found ripgrep
 install_if_not_found bat
 install_if_not_found unzip

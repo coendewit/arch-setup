@@ -69,3 +69,5 @@ alias n="nvim"
 eval "$(zoxide init zsh)"
 
 export PATH="$PATH:$HOME/.dotnet/tools"
+
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
