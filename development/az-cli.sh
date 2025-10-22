@@ -3,4 +3,5 @@ source ~/lib/azure-cli/bin/activate
 pip install --upgrade pip
 pip install azure-cli
 
+mkdir -p ~/bin
 ln -s ~/lib/azure-cli/bin/az ~/bin/az
