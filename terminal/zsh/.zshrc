@@ -68,6 +68,9 @@ alias n="nvim"
 # Initialize zoxide
 eval "$(zoxide init zsh)"
 
-export PATH="$PATH:$HOME/.dotnet/tools"
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools:$HOME/bin
+
+export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/etc/ssl/certs
 
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
