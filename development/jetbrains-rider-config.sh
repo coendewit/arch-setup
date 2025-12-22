@@ -22,7 +22,7 @@ if grep -q "Dawt.toolkit.name=WLToolkit" ~/.config/JetBrains/"$RIDER_VERSION"/ri
   exit 0
 fi
 
-tee ~/.config/JetBrains/Rider2025.2/rider64.vmoptions <<EOF
+tee ~/.config/JetBrains/$RIDER_VERSION/rider64.vmoptions <<EOF
 -Dawt.toolkit.name=WLToolkit
 EOF
 
