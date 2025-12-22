@@ -12,7 +12,6 @@ create_symlink "$SCRIPT_DIR/ssh/config" ~/.ssh/config
 
 eval "$(ssh-agent -s)" >/dev/null
 
-cd ~/.ssh
 ssh-keygen -K
 ssh-add ~/.ssh/id_ed25519_sk_rk
 
