@@ -8,6 +8,8 @@ source "$SCRIPT_DIR/../helper_functions.sh"
 create_symlink "$SCRIPT_DIR/bindings.conf" ~/.config/hypr/bindings.conf
 create_symlink "$SCRIPT_DIR/input.conf" ~/.config/hypr/input.conf
 
+sudo pacman -Sy --noconfirm
+
 omarch-update
 omarchy-setup-fido2
 
