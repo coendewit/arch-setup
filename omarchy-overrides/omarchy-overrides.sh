@@ -8,6 +8,9 @@ source "$SCRIPT_DIR/../helper_functions.sh"
 create_symlink "$SCRIPT_DIR/bindings.conf" ~/.config/hypr/bindings.conf
 create_symlink "$SCRIPT_DIR/input.conf" ~/.config/hypr/input.conf
 
+omarch-update
+omarchy-setup-fido2
+
 source "$SCRIPT_DIR/../terminal/neovim.sh"
 source "$SCRIPT_DIR/../terminal/ssh-keys.sh"
 source "$SCRIPT_DIR/../development/jetbrains-toolbox.sh"
