@@ -10,7 +10,7 @@ create_symlink "$SCRIPT_DIR/input.conf" ~/.config/hypr/input.conf
 
 sudo pacman -Sy --noconfirm
 
-omarch-update
+omarchy-update
 omarchy-setup-fido2
 
 source "$SCRIPT_DIR/../terminal/neovim.sh"
