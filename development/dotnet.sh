@@ -71,3 +71,5 @@ tar zxf "$NAME" -C "$DOTNET_ROOT" --strip-components=1  # Strips the top-level v
 
 rm "$NAME"
 
+sudo rm -rf /usr/share/dotnet
+sudo rm /usr/bin/dotnet
