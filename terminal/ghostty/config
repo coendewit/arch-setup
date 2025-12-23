@@ -1,4 +1,24 @@
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+
 custom-shader = shaders/cursor_warp.glsl
+
+font-size = 9
+font-family = "JetBrains Mono Nerd Font"
+font-style = Regular
+
+window-theme = ghostty
+windox-padding-x = 14
+window-padding-y = 14
+confirm-close-surface = false
+resize-overlay = never
+gtk-toolbar-style = flat
+
+cursor-style = "block"ghostty"
+cursor-style-blink = false
+
+shell-integration-features = no-cursor-ssh-env
+
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=ocpy_to_clipboard
 keybind = ctrl+shift+k=scroll_page_lines:2
 keybind = ctrl+shift+j=scroll_page_lines:2
-font-size = 10
