@@ -33,3 +33,7 @@ if ! grep -q 'PATH="$HOME/bin:\$PATH"' ~/.config/uwsm/env; then
 fi
 
 sudo pacman -R obsidian mise obs-studio --noconfirm
+echo "Finished rebooting"
+if gum confirm "Reboot now?"; then
+    reboot
+fi
