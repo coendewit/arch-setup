@@ -20,6 +20,7 @@ source "$SCRIPT_DIR/../development/dotnet.sh"
 source "$SCRIPT_DIR/../development/dev-cert.sh"
 source "$SCRIPT_DIR/../development/configure-spatialite.sh"
 source "$SCRIPT_DIR/../terminal/zsh.sh"
+source "$SCRIPT_DIR/../development/az-cli.sh"
 
 omarchy-webapp-install "Teams" http://teams.microsoft.com https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/microsoft-teams.png
 omarchy-webapp-install "VGT Board" https://dev.azure.com/databalk/Debatic/_boards/board/t/1.1%20Vastgoedtabel/Backlog%20items?System.AssignedTo=%40me https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/azure-devops.png
