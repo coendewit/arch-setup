@@ -68,9 +68,12 @@ alias n="nvim"
 # Initialize zoxide
 eval "$(zoxide init zsh)"
 
+# Set up dotnet
 export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools:$HOME/bin
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 
+# Set up ASP.NET Core dev certs 
 export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/etc/ssl/certs
 
+# Setup spatialite for geospatial data for testing
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
