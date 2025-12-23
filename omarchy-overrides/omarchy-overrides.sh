@@ -19,6 +19,7 @@ source "$SCRIPT_DIR/../development/jetbrains-toolbox.sh"
 source "$SCRIPT_DIR/../development/dotnet.sh"
 source "$SCRIPT_DIR/../development/dev-cert.sh"
 source "$SCRIPT_DIR/../development/configure-spatialite.sh"
+source "$SCRIPT_DIR/../development/nodejs.sh"
 source "$SCRIPT_DIR/../terminal/zsh.sh"
 source "$SCRIPT_DIR/../terminal/ghostty.sh"
 source "$SCRIPT_DIR/../development/az-cli.sh"
@@ -30,3 +31,5 @@ omarchy-webapp-install "VGT Board" https://dev.azure.com/databalk/Debatic/_board
 if ! grep -q 'PATH="~/bin:\$PATH"' ~/.config/uwsm/env; then
     echo "PATH=\"~/bin:\$PATH\"" >> ~/.config/uwsm/env
 fi
+
+sudo pacman -R obsidian mise obstudio --noconfirm
