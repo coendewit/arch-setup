@@ -28,8 +28,8 @@ omarchy-webapp-install "Teams" http://teams.microsoft.com https://cdn.jsdelivr.n
 omarchy-webapp-install "VGT Board" https://dev.azure.com/databalk/Debatic/_boards/board/t/1.1%20Vastgoedtabel/Backlog%20items?System.AssignedTo=%40me https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/azure-devops.png
 
 ## Add ~/bin to env in uwsm
-if ! grep -q 'PATH="~/bin:\$PATH"' ~/.config/uwsm/env; then
-    echo "PATH=\"~/bin:\$PATH\"" >> ~/.config/uwsm/env
+if ! grep -q 'PATH="$HOME/bin:\$PATH"' ~/.config/uwsm/env; then
+    echo "PATH=\"\$HOME/bin:\$PATH\"" >> ~/.config/uwsm/env
 fi
 
 sudo pacman -R obsidian mise obstudio --noconfirm
