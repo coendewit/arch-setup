@@ -5,7 +5,6 @@ echo "=== Install and configure .net ==="
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 source "$SCRIPT_DIR/../helper_functions.sh"
 
-DOTNET_FILE=dotnet-sdk-9.0.306-linux-x64.tar.gz
 export DOTNET_ROOT="$HOME/.dotnet"
 
 mkdir -p "$DOTNET_ROOT"
@@ -16,40 +15,59 @@ RELEASE_INDEX="https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/r
 echo "Fetching release index..."
 curl -fsSL "$RELEASE_INDEX" -o releases-index.json
 
-# Select the latest supported (non-preview) channel
-CHANNEL_URL=$(jq -r '
-  .["releases-index"]
-  | map(select(.["support-phase"] != "preview"))
-  | sort_by(.["channel-version"] | split(".") | map(tonumber))
-  | last
-  | .["releases.json"]
-' releases-index.json)
+# Download the first (usually the newest/most recent channel, e.g., .NET 10.0)
+curl -L -o releases-1.json "$(jq -r '.["releases-index"][0]."releases.json"' releases-index.json)"
 
-echo "Using channel:"
-echo "  $CHANNEL_URL"
+# Download the second
+curl -L -o releases-2.json "$(jq -r '.["releases-index"][1]."releases.json"' releases-index.json)"
 
-curl -fsSL "$CHANNEL_URL" -o releases.json
+# Extract latest
+read -r NAME URL HASH < <(
+  jq -r '
+    .releases[0]
+    | .sdk.files[]
+    | select(.rid == "'"$ARCH"'" and (.name | endswith(".tar.gz")))
+    | [.name, .url, .hash]
+    | @tsv
+  ' releases-1.json
+)
 
-# Extract latest and previous SDK releases
-jq -r --arg arch "$ARCH" '
-  .releases
-  | map(select(.sdk != null))
-  | .[-2:]
-  | .[]
-  | .sdk.files[]
-  | select(.rid == $arch and (.name | endswith(".tar.gz")))
-  | [.name, .url, .hash]
-  | @tsv
-' releases.json | while IFS=$'\t' read -r NAME URL HASH; do
-    echo
-    echo "Downloading $NAME"
-    curl -fL -o "$NAME" "$URL"
+echo "Latest sdk: $NAME"
+echo "Downloading from $URL ..."
 
-    echo "Validating checksum..."
-    echo "$HASH  $NAME" | sha512sum -c -
+curl -fL -o "$NAME" "$URL"
 
-    tar zxf "$NAME" -C "$DOTNET_ROOT"
-done
+echo "Validating SHA512 checksum..."
+echo "$HASH  $NAME" | sha512sum -c -
 
-echo
-echo "Latest and previous .NET SDK versions downloaded and verified."
+echo "Extracting to $DOTNET_ROOT ..."
+mkdir -p "$DOTNET_ROOT"
+tar zxf "$NAME" -C "$DOTNET_ROOT" --strip-components=1  # Strips the top-level version folder
+
+rm "$NAME"
+
+# Extract latest -1
+read -r NAME URL HASH < <(
+  jq -r '
+    .releases[0]
+    | .sdk.files[]
+    | select(.rid == "'"$ARCH"'" and (.name | endswith(".tar.gz")))
+    | [.name, .url, .hash]
+    | @tsv
+  ' releases-2.json
+)
+
+echo "Latest sdk: $NAME"
+echo "Downloading from $URL ..."
+
+curl -fL -o "$NAME" "$URL"
+
+echo "Validating SHA512 checksum..."
+echo "$HASH  $NAME" | sha512sum -c -
+
+echo "Extracting to $DOTNET_ROOT ..."
+mkdir -p "$DOTNET_ROOT"
+tar zxf "$NAME" -C "$DOTNET_ROOT" --strip-components=1  # Strips the top-level version folder
+
+rm "$NAME"
+
