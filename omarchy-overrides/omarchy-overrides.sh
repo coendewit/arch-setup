@@ -32,4 +32,4 @@ if ! grep -q 'PATH="$HOME/bin:\$PATH"' ~/.config/uwsm/env; then
     echo "PATH=\"\$HOME/bin:\$PATH\"" >> ~/.config/uwsm/env
 fi
 
-sudo pacman -R obsidian mise obstudio --noconfirm
+sudo pacman -R obsidian mise obs-studio --noconfirm
