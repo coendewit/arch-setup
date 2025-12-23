@@ -13,7 +13,7 @@ sudo tee /etc/keyd/10-laptop-alt-super-swap.conf <<EOF
 ## copy id from sudo keyd monitor
 ## it is the part after device added: 
 [ids]
-0001:0001:70533846
+0001:0001:09b4e68d
 
 [main]
 leftalt = leftmeta
