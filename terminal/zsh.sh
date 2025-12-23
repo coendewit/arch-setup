@@ -7,14 +7,14 @@ source "$SCRIPT_DIR/../helper_functions.sh"
 
 install_if_not_found zsh
 
-# Change shell to zsh if SHELL variable is not /usr/bin/zsh
+# Change default shell for next login only
 if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
-  sudo usermod -s /usr/bin/zsh $USER
+  sudo -n usermod -s /usr/bin/zsh "$USER" || true
 fi
 
-# Install oh-my-zsh
-if [[ ! -d ~/.oh-my-zsh ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install oh-my-zsh without spawning zsh
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Install zsh-syntax-highlighting
