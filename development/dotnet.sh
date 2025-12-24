@@ -20,6 +20,9 @@ curl -L -o releases-1.json "$(jq -r '.["releases-index"][0]."releases.json"' rel
 
 # Download the second
 curl -L -o releases-2.json "$(jq -r '.["releases-index"][1]."releases.json"' releases-index.json)"
+#
+# Download the third (azure storage explorer needs .net 8)
+curl -L -o releases-3.json "$(jq -r '.["releases-index"][2]."releases.json"' releases-index.json)"
 
 # Extract latest
 read -r NAME URL HASH < <(
@@ -71,5 +74,37 @@ tar zxf "$NAME" -C "$DOTNET_ROOT" --strip-components=1  # Strips the top-level v
 
 rm "$NAME"
 
+# Extract latest runtime -2
+read -r NAME URL HASH < <(
+  jq -r '
+    .releases[0]
+    | .runtime.files[]
+    | select(.rid == "'"$ARCH"'" and (.name | endswith(".tar.gz")))
+    | [.name, .url, .hash]
+    | @tsv
+  ' releases-3.json
+)
+
+echo "Latest runtime: $NAME"
+echo "Downloading from $URL ..."
+
+curl -fL -o "$NAME" "$URL"
+
+echo "Validating SHA512 checksum..."
+echo "$HASH  $NAME" | sha512sum -c -
+
+echo "Extracting to $DOTNET_ROOT ..."
+mkdir -p "$DOTNET_ROOT"
+tar zxf "$NAME" -C "$DOTNET_ROOT" --strip-components=1  # Strips the top-level version folder
+
+rm "$NAME"
+
+# Clean up intermediate files
+rm releases-index.json
+rm releases-1.json
+rm releases-2.json
+rm releases-3.json
+
+# Cleanup
 sudo rm -rf /usr/share/dotnet
 sudo rm /usr/bin/dotnet
