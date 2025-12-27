@@ -17,3 +17,4 @@ source "$SCRIPT_DIR/../helper_functions.sh"
 #
 create_symlink "$SCRIPT_DIR/neovim/keymaps.lua" ~/.config/nvim/lua/config/keymaps.lua
 create_symlink "$SCRIPT_DIR/neovim/supermaven.lua" ~/.config/nvim/lua/plugins/supermaven.lua
+create_symlink "$SCRIPT_DIR/neovim/easy-dotnet.lua" ~/.config/nvim/lua/plugins/easy-dotnet.lua
