@@ -1,5 +1,6 @@
 Host *
-  IdentityFile ~/.ssh/id_ed25519_sk_rk
+  IdentityFile ~/.ssh/id_ed25519_sk_primary
+  IdentityFile ~/.ssh/id_ed25519_sk_backup
   IdentitiesOnly yes
 
 Host dev.azure.com-condor

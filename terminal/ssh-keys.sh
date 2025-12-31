@@ -15,8 +15,19 @@ eval "$(ssh-agent -s)" >/dev/null
 
 cd ~/.ssh
 
+echo "=== Insert your primary SSH key ==="
+read -r
 ssh-keygen -K
-ssh-add ~/.ssh/id_ed25519_sk_rk
+mv id_ed25519_sk_rk id_ed25519_sk_primary
+mv id_ed25519_sk_rk.pub id_ed25519_sk_primary.pub
+
+echo "=== Insert your backup SSH key ==="
+read -r
+ssh-keygen -K
+mv id_ed25519_sk_rk id_ed25519_sk_primary
+mv id_ed25519_sk_rk.pub id_ed25519_sk_primary.pub
+
+#ssh-add ~/.ssh/id_ed25519_sk_rk
 
 cd "$SCRIPT_DIR"
 

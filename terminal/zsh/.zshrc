@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-eval "$(ssh-agent -s)"
+# eval "$(ssh-agent -s)"
 
 #
 # Only run fastfetch if not on a Linux console
