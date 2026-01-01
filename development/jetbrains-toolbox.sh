@@ -18,3 +18,4 @@ makepkg -siC --noconfirm
 
 rm -rf "$SCRIPT_DIR"/jetbrains/jetbrains*.tar.gz
 rm -rf "$SCRIPT_DIR"/jetbrains/jetbrains*.pkg.tar.zst
+rm -rf "$HOME/.config/autostart/jetbrains-toolbox.desktop"
