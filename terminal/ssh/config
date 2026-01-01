@@ -15,7 +15,6 @@ Host ssh.dev.azure.com
 Host server1
     HostName 49.13.233.15
     User root
-    IdentityFile ~/.ssh/server_rsa
 
 Host storage
   HostName u491539.your-storagebox.de
