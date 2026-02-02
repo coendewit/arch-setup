@@ -1,5 +1,7 @@
+# Measure startup time
+start_time=$(date +%s.%3N)
+
 export ZSH=$HOME/.oh-my-zsh
-# eval "$(ssh-agent -s)"
 
 #
 # Only run fastfetch if not on a Linux console
@@ -77,3 +79,11 @@ export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/etc/ssl/certs
 
 # Setup spatialite for geospatial data for testing
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
+
+# Added by get-aspire-cli.sh
+export PATH="$HOME/.aspire/bin:$PATH"
+
+# Display startup time
+end_time=$(date +%s.%3N)
+elapsed=$(awk "BEGIN {printf \"%.3f\", $end_time - $start_time}")
+echo "Shell startup time: ${elapsed}s"
